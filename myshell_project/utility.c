@@ -1,4 +1,4 @@
-// Title:  utility.c
+// Title: utility.c
 //- Amal Yasser Farouk Anan             | ID: 220201122
 //- Aseel Khalil Omar Hodhod            | ID: 220200323  
 //- Dalia Jamal Taher Abu Sharekh       | ID: 220200747
