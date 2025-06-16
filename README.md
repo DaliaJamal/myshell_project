@@ -1,109 +1,65 @@
-
----
-
 # 🐚 myshell — Operating Systems Project
 
 ## 👩‍💻 Authors
 
-* **Aseel Khalil Omar Hodhod** (220200323)
-* **Amal Yasser Farouq Anan** (220201122)
-* **Dalia Jamal Taher Abu Sharekh** (220200747)
+* **Aseel Khalil Omar Hodhod** — 220200323
+* **Amal Yasser Farouq Anan** — 220201122
+* **Dalia Jamal Taher Abu Sharekh** — 220200747
 
 ---
 
 ## 📄 Overview
 
-**myshell** is a simple command-line shell written in **C**, designed to operate on **Ubuntu Linux** systems. It mimics the behavior of common Unix shells by supporting internal commands, batch file execution, redirection, and background processing.
+**myshell** is a custom command-line shell developed in **C** for **Ubuntu Linux** systems. It replicates essential features of traditional Unix shells, supporting internal commands, batch file execution, input/output redirection, and background process handling.
 
 ---
 
 ## 🚀 Features
 
-* 📂 Internal command execution
-* 💡 External program support
+* 📂 Internal command support
+* 🧩 External program execution
 * 📜 Batch file processing (`myshell script.bat`)
-* 🔄 Input & output redirection (`<`, `>`, `>>`)
-* 🧵 Background process execution (`&`)
+* 🔄 Input and output redirection (`<`, `>`, `>>`)
+* 🧵 Background process execution using `&`
 
 ---
 
-## 🧰 Supported Internal Commands
+## 🧰 Internal Commands
 
-| Command   | Description                            |
-| --------- | -------------------------------------- |
-| `cd`      | Change the current working directory   |
-| `pwd`     | Print current working directory        |
-| `clr`     | Clear the terminal screen              |
-| `dir`     | List contents of a directory           |
-| `environ` | Show all environment variables         |
-| `echo`    | Display a line of text or file content |
-| `help`    | Display user manual and command help   |
-| `pause`   | Pause shell until Enter key is pressed |
-| `quit`    | Exit the shell                         |
-| `myshell` | Execute commands from a batch file     |
-
----
-
-## ⚙ Installation & Compilation
-
-### Prerequisites
-
-Make sure `gcc` is installed:
-
-```bash
-sudo apt update
-sudo apt install build-essential
-```
-
-### Compile myshell
-
-```bash
-gcc -o myshell myshell.c utility.c
-```
+| Command   | Description                           |
+| --------- | ------------------------------------- |
+| `cd`      | Change current working directory      |
+| `pwd`     | Show current working directory        |
+| `clr`     | Clear the terminal screen             |
+| `dir`     | List directory contents               |
+| `environ` | Display all environment variables     |
+| `echo`    | Print text or file content            |
+| `help`    | Show user manual and help information |
+| `pause`   | Pause shell until Enter is pressed    |
+| `quit`    | Exit the shell                        |
+| `myshell` | Execute commands from a batch file    |
 
 ---
 
 ## ▶️ Usage
 
-### Interactive Mode
+### Interactive Mode:
 
 ```bash
 ./myshell
 ```
 
-### Batch Mode
+### Batch Mode:
 
 ```bash
 ./myshell test.bat
 ```
 
-myshell will read and execute commands from the given file line by line, then exit automatically.
+myshell reads and executes commands from the batch file, then exits automatically.
 
 ---
 
-## 📚 Getting Help Inside the Shell
-
-* View all internal commands:
-
-  ```
-  help command
-  ```
-* Get help for a specific topic:
-
-  ```
-  help cd
-  help redirection
-  help path
-  ```
-* Display full shell manual:
-
-  ```
-  help more
-  ```
-
----
-
-## ✍️ Batch File Example (`test.bat`)
+## 📘 Batch File Example — `test.bat`
 
 ```bash
 echo Welcome to myshell!
@@ -114,7 +70,7 @@ pause
 quit
 ```
 
-Run it:
+Run it with:
 
 ```bash
 ./myshell test.bat
@@ -122,13 +78,13 @@ Run it:
 
 ---
 
-## 🔄 I/O Redirection
+## 🔄 Input & Output Redirection
 
-| Symbol | Function                   |
-| ------ | -------------------------- |
-| `<`    | Input from file            |
-| `>`    | Output to file (overwrite) |
-| `>>`   | Output to file (append)    |
+| Symbol | Function                            |
+| ------ | ----------------------------------- |
+| `<`    | Redirect input from file            |
+| `>`    | Redirect output to file (overwrite) |
+| `>>`   | Redirect output to file (append)    |
 
 Examples:
 
@@ -140,15 +96,15 @@ cd < dir_path.txt
 
 ---
 
-## 🔧 Background Execution
+## 🧵 Background Execution
 
-Append `&` to any command:
+To run a command in the background, add `&`:
 
 ```bash
-long_task &
+sleep 10 &
 ```
 
-Allows the shell to continue accepting commands without waiting.
+This allows myshell to continue receiving input without waiting for the command to finish.
 
 ---
 
@@ -156,15 +112,15 @@ Allows the shell to continue accepting commands without waiting.
 
 myshell supports:
 
-* Relative paths (`./folder`, `../folder`)
-* Absolute paths (`/home/user`)
+* Relative paths: `./folder`, `../folder`
+* Absolute paths: `/home/user`
 * Special tokens:
 
-  * `..` → parent directory
   * `.` → current directory
+  * `..` → parent directory
   * `~` → home directory
 
-⚠️ Use `\` to escape spaces in file/directory names:
+⚠️ Escape spaces in file or folder names using `\`:
 
 ```bash
 echo < file\ name.txt
@@ -172,25 +128,25 @@ echo < file\ name.txt
 
 ---
 
-## 📘 Example Commands
+## 🧪 Example Commands
 
-| Action                 | Command                         |
-| ---------------------- | ------------------------------- |
-| Change directory       | `cd /home/user`                 |
-| Show current directory | `pwd > pwd.txt`                 |
-| Display file content   | `echo < input.txt > output.txt` |
-| List files             | `dir > list.txt`                |
-| Pause execution        | `pause`                         |
-| Run batch file         | `myshell script.bat`            |
-| Background command     | `sleep 5 &`                     |
+| Action               | Command                         |
+| -------------------- | ------------------------------- |
+| Change directory     | `cd /home/user`                 |
+| Show current path    | `pwd > pwd.txt`                 |
+| Display file content | `echo < input.txt > output.txt` |
+| List directory files | `dir > list.txt`                |
+| Pause the shell      | `pause`                         |
+| Execute batch file   | `myshell script.bat`            |
+| Run in background    | `sleep 5 &`                     |
 
 ---
 
 ## 📌 Notes
 
-* If redirection fails, "Path Error" or "Open Error" will be reported.
-* Only the last output file in a redirection sequence is used.
-* Background processes don't block further shell input.
+* If redirection fails, messages like "Path Error" or "File Error" will be shown.
+* Only the last output file is considered if multiple redirections are chained.
+* Background processes do not block the shell from receiving more commands.
 
 ---
 
@@ -200,7 +156,3 @@ echo < file\ name.txt
 * **Instructor:** Eng. Amal Mahfouz
 * **Submission Date:** June 15, 2025
 * **Project Title:** myshell – A Custom Command-Line Shell
-
----
-
-Let me know if you'd like to export this as a `.md` file or generate a PDF!
